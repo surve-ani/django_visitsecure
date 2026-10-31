@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VisitSecure Security Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <h2>VisitSecure Security Dashboard</h2>
+
+    <p>Welcome to the security dashboard. Here you can monitor and manage security-related activities.</p>
+
+    <!-- Add your dashboard content here -->
+    <h2>Welcome, {{ request.user.username }}</h2>
+    <p>Role: {{ request.user.role }}</p>
+
+    <p>You are logged in as Security Guard.</p>
+    
+    <hr>
+
+    <h3>Security Guard Actions</h3>
+
+    <button>Register Visitor</button>
+    <button>Today's Visitors</button>
+    <button>Check-In Visitor</button>
+    <button>Check-Out Visitor</button>
+
+    <br><br>
+
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+           
+</body>
+</html> 
